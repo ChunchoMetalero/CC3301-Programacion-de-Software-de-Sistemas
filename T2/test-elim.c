@@ -185,6 +185,7 @@ int main(int argc, char *argv[]) {
     checkImp("abccbdddbeeeeb", "b", "accdddeeee");
     checkImp("bccbdddbeeeeb", "b", "ccdddeeee");
     checkImp("bccbdddbeeee", "b", "ccdddeeee");
+    checkImp("aaaaaabaaaaaaa", "a", "b");
   }
 
   {
@@ -213,6 +214,9 @@ int main(int argc, char *argv[]) {
         *s= 'a';
       s++;
     }
+#if 1
+    *top= 0;
+#endif
     char **array= malloc(DUP*sizeof(char*));
     for (int i= 0; i<DUP; i++)
       array[i]= eliminados(str, "a");
