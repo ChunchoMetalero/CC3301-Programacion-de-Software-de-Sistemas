@@ -16,7 +16,7 @@ Aprobado
 Benchmark de eliminados
 -----------------------
 Intento= 1
-Tiempo para su version= 50 milisegundos
+Tiempo para su version= 48 milisegundos
 Felicitaciones!  Aprobo todos los tests.
 ==== run-g ====
 gcc -g -Wall -Werror -std=c18 -Wno-unused-function  test-elim.c elim.c -lm -o elim.bin-g
@@ -34,7 +34,7 @@ Aprobado
 Benchmark de eliminados
 -----------------------
 Intento= 1
-Tiempo para su version= 16 milisegundos
+Tiempo para su version= 15 milisegundos
 Felicitaciones!  Aprobo todos los tests.
 ==== run ====
 gcc -O -DOPT=1 -Wall -Werror -std=c18 -Wno-unused-function  test-elim.c elim.c -lm -o elim.bin
@@ -42,25 +42,25 @@ Midiendo cuanto demora la solucion del profesor
 rm -f tiempo-ref.txt
 chmod +x prof.ref-x86_64
 ./prof.ref-x86_64 ref > /dev/null
-Tiempos de referencia =  282 673
+Tiempos de referencia =  283 664
 Verificando y comparando con su solucion
-./elim.bin 282 673
+./elim.bin 283 664
 Tests de eliminar
 Tests de eliminados
 Test de uso de memoria de eliminados
 ---------------------
 Benchmark de eliminar
 ---------------------
-Tiempo para la version del profesor= 282 milisegundos
+Tiempo para la version del profesor= 283 milisegundos
 Intento= 1
-Tiempo para su version= 340 milisegundos
-Porcentaje de sobrecosto: 20 %
+Tiempo para su version= 182 milisegundos
+Porcentaje de sobrecosto: -35 %
 Aprobado
 -----------------------
 Benchmark de eliminados
 -----------------------
-Tiempo para la version del profesor= 673 milisegundos
+Tiempo para la version del profesor= 664 milisegundos
 Intento= 1
-Tiempo para su version= 526 milisegundos
-Porcentaje de sobrecosto: -21 %
+Tiempo para su version= 308 milisegundos
+Porcentaje de sobrecosto: -53 %
 Felicitaciones!  Aprobo todos los tests.
