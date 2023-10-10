@@ -10,7 +10,7 @@
 void definir(char *nom_dic, char *palabra, char *def){
   // Abrimos el archivo 
   FILE *f = fopen(nom_dic, "r+");
-  int n = strlen(palabra);
+  int n = 0;
   char *space = " ";
 
 
@@ -22,6 +22,7 @@ void definir(char *nom_dic, char *palabra, char *def){
       fputs(palabra,f);
       fputc(58,f);
       fputs(def,f);
+      break;
     }
     fseek(f, 80-n, SEEK_CUR);
   }
