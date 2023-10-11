@@ -10,24 +10,26 @@
 void definir(char *nom_dic, char *palabra, char *def){
   // Abrimos el archivo 
   FILE *f = fopen(nom_dic, "r+");
-  int n = 0;
-  char *space = " ";
-
-
-  //Guardamos un buffer para leer la primera palabra
-  char buf[n+1];
-  buf[n] = 0; 
+  int n = 80;
+  char buf[n+1]; 
+  
   while (fgets(buf, n+1, f)) {
-    if (strcmp(buf, space) > 0) {
+    fseek(f, -n, SEEK_CUR);
+    char firstchar = fgetc(f);
+    fseek(f, -1, SEEK_CUR);
+    if (firstchar == ' ') {
       fputs(palabra,f);
       fputc(58,f);
       fputs(def,f);
       break;
     }
-    fseek(f, 80-n, SEEK_CUR);
+    else{
+      fseek(f, 80, SEEK_CUR);
+    }
   }
   fclose(f);
 }
+
 
 int main(int argc, char *argv[]) {
   //... programe aca su solucion ...
