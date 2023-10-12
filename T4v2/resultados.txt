@@ -54,12 +54,10 @@ Ejecutando: ./definir.bin-g dicc.txt casa "edificacion construida para ser habit
 Ejecutando: ./definir.bin-g dicc.txt lluvia "precipitacion de particulas liquidas de agua"
 Ejecutando: ./definir.bin-g dicc.txt alimento "sustancia ingerida por un ser vivo"
 Ejecutando: ./definir.bin-g dicc.txt celular "aparato portatil de un sistema de telefonia celular"
-dicc.txt: No such file or directory
-Bien.  Se diagnostico correctamente el error.
 -----------------------------------------------------------
 Test con llave existente
 Ejecutando: ./definir.bin-g dicc.txt alimento "sustancia ingerida por un ser vivo"
-dicc.txt: No such file or directory
+La llave alimento ya se encuentra en el diccionario
 Bien.  Se diagnostico correctamente el error.
 -----------------------------------------------------------
 Test con un diccionario inexistente
@@ -69,7 +67,7 @@ Bien.  Se diagnostico correctamente el error.
 -----------------------------------------------------------
 Test con diccionario sin permiso de escritura
 Ejecutando: ./definir.bin-g /tmp/dicc.txt evangelio "bla bla"
-/tmp/dicc.txt: No such file or directory
+/tmp/dicc.txt: Permission denied
 Bien.  Se diagnostico correctamente el error.
 -----------------------------------------------------------
 Test de uso incorrecto de parametros

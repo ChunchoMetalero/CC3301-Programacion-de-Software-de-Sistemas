@@ -15,17 +15,18 @@ int completooo(char *nom_dic) {
   int lineas = ftell(f)/81;
   printf("El valor de lineas es: %d\n", lineas);
   int i = 0;
+  int j = 0;
   fseek(f, 0, SEEK_SET);
-  while (fgets(buf, 81, f)) {
+  while (j< lineas) {
+    fread(buf, 1, 80, f);
+    buf[80] = '\0';
+    printf("El valor de buf es: %s\n", buf);
     char firstchar = fgetc(f);
     fseek(f, -1, SEEK_CUR);
     if (firstchar == ' ') {
       i++;
-      fseek(f, 80, SEEK_CUR);
     }
-    else {
-      fseek(f, 80, SEEK_CUR);
-    }
+    j++;
   }
   fclose(f);
   printf("El valor de i es: %d\n", i);
