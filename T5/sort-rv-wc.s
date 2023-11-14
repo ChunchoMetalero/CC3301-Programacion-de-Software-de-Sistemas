@@ -40,11 +40,59 @@ sort:                   # void sort(uint nums[], int n) { // registros a0, a1
     # en 0(sp), 4(sp), ... o 44(sp)
     # El valor de p esta temporalmente en el registro t0
     # No puede hacer mas trabajo que la comparacion (no puede usar ret)
-    lw      a0,0(t0)    #     int rc= strcmp(p[0], p[1]); // registro t1
+    lw      a0,0(t0)    
     lw      a1,4(t0)
-    call    strcmp      #     // valor retornado queda en registro a0
-                        #     // p ya no esta en el registro t0
-    mv      t1,a0       #     // Dejar resultado de la comparacion en t1
+    li      t5,0        #     count
+    li      a2,32       #     a2 = ' '
+
+    .L1:
+    lbu     t2,0(a0)
+    beq     t2,zero,.L2
+    beq     t2,a2,.L3
+    addi    t5,t5,1
+    beq     t2,zero,.L2
+    beq     t2,a2,.L3
+
+    .L4:
+    addi    a0,a0,1
+    lbu     t2,0(a0)
+    beq     t2,zero,.L2
+    beq     t2,a2,.L1
+    j       .L4
+
+    .L3:
+    addi    a0,a0,1
+    j       .L1
+
+    .L2:
+    mv     t4,t5
+    li     t5,0
+
+    .L5:
+    lbu    t3,0(a1)
+    beq    t3,zero,.L6
+    beq    t3,a2,.L7
+    addi   t5,t5,1
+    beq    t3,zero,.L6
+    beq    t3,a2,.L7
+
+    .L8:
+    addi   a1,a1,1
+    lbu    t3,0(a1)
+    beq    t3,zero,.L6
+    beq    t3,a2,.L5
+    j      .L8
+
+    .L7:
+    addi   a1,a1,1
+    j      .L5
+
+    .L6:
+    sub    t5,t4,t5
+    mv     t1,t5
+
+
+    
 
     # En el registro t1 debe quedar la conclusion de la comparacion:
     # si t1<=0 p[0] y p[1] estan en orden y no se intercambiaran.

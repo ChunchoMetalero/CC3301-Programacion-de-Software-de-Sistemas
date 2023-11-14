@@ -121,7 +121,7 @@ int main(int argc, char *argv[]) {
   if (argc != 4) {
         fprintf(stderr, "Uso: ./definir <diccionario> <llave> <definicion>\n");
         exit(1);
-    }
+  }
   else if (f == NULL) {
     perror(argv[1]);
     exit(1);

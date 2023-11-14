@@ -21,12 +21,33 @@ int strCmp(char *s1, char *s2) {
     return c1 - c2;
 }
 
+int countWords(char *str1) {
+  int count = 0;
+  int i = 0;
+  
+  while (str1[i] != '\0') {
+    if (str1[i] == ' ') {
+      // Saltar espacios en blanco
+      i++;
+    } else {
+      // Encontró una palabra
+      count++;
+      while (str1[i] != ' ' && str1[i] != '\0') {
+        i++;
+      }
+    }
+  }
+  return count;
+}
+
+
+
 void sort(char **a, int n) {
   char **ult= &a[n-1];
   char **p= a;
   while (p<ult) {
 
-    int t1= strCmp(p[0], p[1]);
+    int t1= countWords(p[0])- countWords(p[1]);
 
     if (t1 <= 0)
       p++;
