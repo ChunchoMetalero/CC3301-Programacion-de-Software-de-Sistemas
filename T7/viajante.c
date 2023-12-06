@@ -23,13 +23,40 @@ int leer(int fd, void *vbuf, int n) {
 }
 
 double viajante_par(int z[], int n, double **m, int nperm, int p) {
-  // Complete esta funcion
-  // Puede invocar a su version secuencial: viajante
-  // Use la funcion leer para que el padre reciba la ruta del hijo.
-  // Use fork() para crear p nuevos procesos.  El padre solo obtiene los
-  // resultados de los procesos hijos a traves de pipes, entierra a los
-  // los hijos y calcula el resultado final.
-  // Despues de invocar fork() agregue: srandom(getUSecsOfDay()*getpid());
-  // Esto es para que cada proceso genere secuencias de numeros aleatorios
-  // diferentes.
-}
+  int pids[p];
+  int fds[p][2];
+
+  for (int i = 0; i < p; i++) {
+    pipe(fds[i]);
+    pids[i] = fork();
+    srandom(getUSecsOfDay()*getpid());
+
+    if (pids[i] == 0) {
+      close(fds[i][0]);
+      double res = viajante(z, n, m, nperm/p);
+      write(fds[i][1], &res, sizeof(double));
+      write(fds[i][1], &z[0], (n+1)*sizeof(int));
+      close(fds[i][1]);
+      exit(0);
+    }
+    else {
+      close(fds[i][1]);
+    }
+  }
+
+  double res = DBL_MAX;
+  for (int i = 0; i < p; i++) {
+    double res_hijo;
+    close (fds[i][1]);
+    leer(fds[i][0], &res_hijo, sizeof(double));
+    
+    if (res_hijo < res) {
+      res = res_hijo;
+      leer(fds[i][0], &z[0], (n+1)*sizeof(int));
+    }
+    waitpid(pids[i], NULL, 0);
+    close(fds[i][0]);
+  }
+  return res;
+} 
+
