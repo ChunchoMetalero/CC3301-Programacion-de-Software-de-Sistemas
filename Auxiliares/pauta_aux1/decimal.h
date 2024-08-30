@@ -1,1 +1,0 @@
-int decimal(int binario);
