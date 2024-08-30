@@ -1,4 +1,4 @@
-# CC3001-Algoritmos-y-estrcturas-de-datos
+# CC3301-Programación-de-software-de-sistemas
 Soluciones a las tareasdel ramo CC3301 "Programación de software de sistemas"
 
 ## Tareas
