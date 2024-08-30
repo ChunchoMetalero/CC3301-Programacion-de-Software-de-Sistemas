@@ -1,5 +1,5 @@
 # CC3001-Algoritmos-y-estrcturas-de-datos
-Soluciones a las tareas y ejercicios del ramo CC3001 "Algoritmos y estructuras de datos"
+Soluciones a las tareasdel ramo CC3301 "Programación de software de sistemas"
 
 ## Tareas
  - [Tarea 1](/Tareas/T1)
