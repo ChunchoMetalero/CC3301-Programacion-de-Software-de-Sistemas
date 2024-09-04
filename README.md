@@ -1,5 +1,5 @@
 # CC3301-Programación-de-software-de-sistemas
-Soluciones a las tareasdel ramo CC3301 "Programación de software de sistemas"
+Soluciones a las tareas del ramo CC3301 "Programación de software de sistemas"
 
 ## Tareas
  - [Tarea 1](/Tareas/T1): Operaciones con bits.
