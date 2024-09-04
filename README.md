@@ -12,4 +12,4 @@ Soluciones a las tareasdel ramo CC3301 "Programación de software de sistemas"
  - [Tarea 8](/Tareas/T8): Directorios.
 
 ## Enunciados
-Los enunciados de las tareas anteriores los puedes encontrar [aquí](/Enunciados Tareas)
+Los enunciados de las tareas anteriores los puedes encontrar [aquí](/Enunciados_tareas)
